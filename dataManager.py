@@ -85,11 +85,10 @@ class OHLCVDataManager:
                     exit_price = trade_data.iloc[-1]['close']
                     number_shares = trade['amount'] // trade_data.iloc[0]['open']
                     
-                    if trade['direction'] == 'long':
+                    if trade['direction'] == 'Long':
                         pnl = (exit_price - entry_price) * number_shares
                     else:
                         pnl = (entry_price - exit_price) * number_shares
-                    # pnl = (exit_price - entry_price) * number_shares if trade['direction'] == 'long' else (entry_price - exit_price) * number_shares
 
                     trade_result = trade.copy()
                     trade_result['pnl'] = pnl
