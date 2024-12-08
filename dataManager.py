@@ -91,6 +91,8 @@ class OHLCVDataManager:
                         pnl = (entry_price - exit_price) * number_shares
 
                     trade_result = trade.copy()
+                    trade_result['entry'] = entry_price
+                    trade_result['exit'] = exit_price
                     trade_result['pnl'] = pnl
                     trade_result['#shares'] = number_shares
                     results.append(trade_result)
